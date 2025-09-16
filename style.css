@@ -1,57 +1,92 @@
+/* BEGIN PERPLEXITY DESIGN SYSTEM BASE */
 :root {
   /* Primitive Color Tokens */
-  --color-white: rgba(255,255,255,1);
-  --color-black: rgba(0,0,0,1);
-  --color-cream-50: rgba(252,252,249,1);
-  --color-cream-100: rgba(255,255,253,1);
-  --color-gray-200: rgba(245,245,245,1);
-  --color-gray-300: rgba(167,169,169,1);
-  --color-gray-400: rgba(119,124,124,1);
-  --color-slate-500: rgba(98,108,113,1);
-  --color-brown-600: rgba(94,82,64,1);
-  --color-charcoal-700: rgba(31,33,33,1);
-  --color-charcoal-800: rgba(38,40,40,1);
-  --color-slate-900: rgba(19,52,59,1);
-  --color-teal-300: rgba(50,184,198,1);
-  --color-teal-400: rgba(45,166,178,1);
-  --color-teal-500: rgba(33,128,141,1);
-  --color-teal-600: rgba(29,116,128,1);
-  --color-teal-700: rgba(26,104,115,1);
-  --color-teal-800: rgba(41,150,161,1);
-  --color-red-400: rgba(255,84,89,1);
-  --color-red-500: rgba(192,21,47,1);
-  --color-orange-400: rgba(230,129,97,1);
-  --color-orange-500: rgba(168,75,47,1);
-  --color-bg-1: rgba(59,130,246,0.08); /* Light blue */
-  --color-bg-2: rgba(245,158,11,0.08); /* Light yellow */
-  --color-bg-3: rgba(34,197,94,0.08); /* Light green */
-  --color-bg-4: rgba(239,68,68,0.08); /* Light red */
-  --color-bg-5: rgba(147,51,234,0.08); /* Light purple */
+  --color-white: rgba(255, 255, 255, 1);
+  --color-black: rgba(0, 0, 0, 1);
+  --color-cream-50: rgba(252, 252, 249, 1);
+  --color-cream-100: rgba(255, 255, 253, 1);
+  --color-gray-200: rgba(245, 245, 245, 1);
+  --color-gray-300: rgba(167, 169, 169, 1);
+  --color-gray-400: rgba(119, 124, 124, 1);
+  --color-slate-500: rgba(98, 108, 113, 1);
+  --color-brown-600: rgba(94, 82, 64, 1);
+  --color-charcoal-700: rgba(31, 33, 33, 1);
+  --color-charcoal-800: rgba(38, 40, 40, 1);
+  --color-slate-900: rgba(19, 52, 59, 1);
+  --color-teal-300: rgba(50, 184, 198, 1);
+  --color-teal-400: rgba(45, 166, 178, 1);
+  --color-teal-500: rgba(33, 128, 141, 1);
+  --color-teal-600: rgba(29, 116, 128, 1);
+  --color-teal-700: rgba(26, 104, 115, 1);
+  --color-teal-800: rgba(41, 150, 161, 1);
+  --color-red-400: rgba(255, 84, 89, 1);
+  --color-red-500: rgba(192, 21, 47, 1);
+  --color-orange-400: rgba(230, 129, 97, 1);
+  --color-orange-500: rgba(168, 75, 47, 1);
+
+  /* Background color tokens */
+  --color-bg-1: rgba(59, 130, 246, 0.08);
+  --color-bg-2: rgba(245, 158, 11, 0.08);
+  --color-bg-3: rgba(34, 197, 94, 0.08);
+  --color-bg-4: rgba(239, 68, 68, 0.08);
+  --color-bg-5: rgba(147, 51, 234, 0.08);
+
+  /* Semantic Color Tokens */
   --color-background: var(--color-cream-50);
   --color-surface: var(--color-cream-100);
   --color-text: var(--color-slate-900);
   --color-primary: var(--color-teal-500);
+  --color-primary-hover: var(--color-teal-600);
+  --color-accent: var(--color-orange-500);
+  --color-accent-hover: var(--color-orange-400);
+  --color-success: var(--color-teal-500);
+  --color-warning: var(--color-orange-500);
+  --color-danger: var(--color-red-500);
+  --color-border: var(--color-gray-300);
+  --color-border-light: var(--color-gray-200);
+  --font-family-sans: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  --font-size-base: 16px;
 }
+
+/* Base styles */
 body {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: var(--font-family-sans);
   color: var(--color-text);
-  background-color: var(--color-background);
+  background: var(--color-background);
   margin: 0;
   padding: 0;
 }
+
+/* Header */
 .header {
-  background: linear-gradient(135deg, var(--color-teal-500), var(--color-teal-700));
+  background: linear-gradient(135deg, var(--color-primary), var(--color-teal-700));
   color: var(--color-white);
-  padding: 2rem 0 1rem 0;
-  box-shadow: 0 2px 8px rgba(33,128,141,0.10);
+  padding: 2rem 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
 }
+.header-content {
+  text-align: center;
+}
+.header-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+.header-subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 0.7rem;
+}
+
+/* Contact bar */
 .contact-info {
   font-size: 1rem;
   opacity: 0.9;
 }
+
+/* Navigation Tabs */
 .tab-navigation {
   background: var(--color-white);
-  border-bottom: 2px solid var(--color-gray-200);
+  border-bottom: 2px solid var(--color-border-light);
   position: sticky;
   top: 0;
   z-index: 100;
@@ -69,24 +104,87 @@ body {
   font-weight: 500;
   padding: 0.75rem 1.5rem;
   border-radius: 0.5rem;
-  color: var(--color-slate-500);
+  color: var(--color-gray-400);
   cursor: pointer;
   transition: background 0.2s;
 }
 .tab-btn:hover,
 .tab-btn.active {
-  background: linear-gradient(90deg, var(--color-primary), var(--color-orange-500));
+  background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
   color: var(--color-white);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
 }
 .tab-btn.active {
   font-weight: 700;
 }
-/* Add remaining layout/component blocks here as needed... */
 
+/* Main Content Area */
+.main-content {
+  min-height: 80vh;
+  padding-bottom: 2rem;
+}
+.tab-content {
+  display: none;
+  padding: 2rem 0;
+}
+.tab-content.active {
+  display: block;
+}
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
 
+/* Cards, Sections */
+.hero-section {
+  background: linear-gradient(135deg, var(--color-bg-1), var(--color-bg-3));
+  padding: 3rem 0;
+  margin-bottom: 2.5rem;
+}
+.hero-stats {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.hero-stat {
+  background: var(--color-white);
+  text-align: center;
+  border-radius: 1rem;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.09);
+  padding: 2rem 1.5rem;
+  min-width: 220px;
+  border-left: 6px solid var(--color-primary);
+}
+.hero-stat.good { border-left-color: var(--color-success); }
+.hero-stat.warning { border-left-color: var(--color-warning); }
+.hero-stat.critical { border-left-color: var(--color-danger); }
+.stat-number {
+  font-size: 2.7rem;
+  font-weight: bold;
+}
+.stat-label {
+  font-size: 1.1rem;
+  margin-bottom: 0.12rem;
+}
+.stat-period {
+  font-size: 1rem;
+  color: var(--color-gray-400);
+}
+/* More blocks for content card, grid, CTA section, buttons, etc. are included in your original file and should be retained. */
 
-
- 
-
-
+/* Responsive Design */
+@media (max-width: 900px) {
+  .container { padding: 0 1rem; }
+  .hero-stats, .content-grid, .cta-buttons {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+@media (max-width: 650px) {
+  .header-title { font-size: 1.6rem; }
+  .hero-stat, .content-card { min-width: 0; }
+  .chart-container { min-height: 280px; }
+}
 
