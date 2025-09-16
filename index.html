@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teen Driving Safety: Data-Driven Solutions for Parents</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <h1 class="header-title">Teen Driving Safety Center</h1>
+                <p class="header-subtitle">Data-driven solutions to protect young drivers</p>
+                <div class="contact-info">
+                    <span>Brought to you by <strong>Jeff Lee Pedersen Toyota</strong></span>
+                    <span>📞 720-416-6955 | 📧 jlee@pedersentoyota.com</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav class="tab-navigation">
+        <div class="container">
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="overview">Overview</button>
+                <button class="tab-btn" data-tab="trends">20-Year Trends</button>
+                <button class="tab-btn" data-tab="age-groups">Age Analysis</button>
+                <button class="tab-btn" data-tab="gender">Gender Differences</button>
+                <button class="tab-btn" data-tab="causes">Top Causes</button>
+                <button class="tab-btn" data-tab="brain">Brain Science</button>
+                <button class="tab-btn" data-tab="solutions">Proven Solutions</button>
+                <button class="tab-btn" data-tab="action">Take Action</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <!-- Overview Tab -->
+        <section id="overview" class="tab-content active">
+            <div class="hero-section">
+                <div class="container">
+                    <div class="hero-stats">
+                        <div class="hero-stat good">
+                            <div class="stat-number">46%</div>
+                            <div class="stat-label">Reduction in Teen Deaths</div>
+                            <div class="stat-period">2004-2023</div>
+                        </div>
+                        <div class="hero-stat warning">
+                            <div class="stat-number">19.4%</div>
+                            <div class="stat-label">Recent Increase</div>
+                            <div class="stat-period">2019-2023</div>
+                        </div>
+                        <div class="hero-stat critical">
+                            <div class="stat-number">4x</div>
+                            <div class="stat-label">Higher Crash Risk</div>
+                            <div class="stat-period">Teen vs Adult</div>
+                        </div>
+                        <div class="hero-stat critical">
+                            <div class="stat-number">2.4x</div>
+                            <div class="stat-label">Male vs Female Risk</div>
+                            <div class="stat-period">Teen Drivers</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="content-grid">
+                    <div class="content-card">
+                        <h3>The Good News</h3>
+                        <p>Teen driving deaths have decreased dramatically over 20 years thanks to proven interventions like Graduated Driver Licensing, improved vehicle safety, and increased parent awareness.</p>
+                        <div class="highlight-stat">
+                            <span class="big-number">2,774</span>
+                            <span class="stat-description">Lives saved since 2004</span>
+                        </div>
+                    </div>
+                    <div class="content-card warning-card">
+                        <h3>The Concerning Trend</h3>
+                        <p>Since 2019, teen driving deaths have increased 19.4%, reversing years of progress. This uptick demands immediate attention from parents and renewed focus on proven safety strategies.</p>
+                        <div class="highlight-stat">
+                            <span class="big-number">779</span>
+                            <span class="stat-description">Additional deaths since 2019</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cta-section">
+                    <h2>Every Parent Needs to Know This</h2>
+                    <p>This interactive tool provides 20 years of research-backed insights to help you protect your teen driver. Explore the data, understand the risks, and discover proven strategies to keep your young driver safe.</p>
+                    <div class="cta-buttons">
+                        <button class="btn primary" onclick="switchTab('trends')">See 20-Year Trends</button>
+                        <button class="btn secondary" onclick="switchTab('solutions')">Find Solutions</button>
+                        <button class="btn accent" onclick="switchTab('action')">Take Action Now</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 20-Year Trends Tab -->
+        <section id="trends" class="tab-content">
+            <div class="container">
+                <div class="section-header">
+                    <h2>20-Year Trends in Teen Driving Safety</h2>
+                    <p>Remarkable progress followed by concerning recent increases</p>
+                </div>
+
+                <div class="chart-container">
+                    <canvas id="trendsChart"></canvas>
+                </div>
+
+                <div class="insights-grid">
+                    <div class="insight-card">
+                        <h4>2004-2011: Dramatic Decline</h4>
+                        <p>Implementation of Graduated Driver Licensing (GDL) laws across all states led to a 45% reduction in teen deaths.</p>
+                    </div>
+                    <div class="insight-card">
+                        <h4>2011-2019: Steady Progress</h4>
+                        <p>Continued improvements in vehicle safety technology and parent education sustained the downward trend.</p>
+                    </div>
+                    <div class="insight-card warning">
+                        <h4>2019-2023: Concerning Reversal</h4>
+                        <p>Pandemic impacts, increased risk-taking, and technology distractions contributed to a 19.4% increase in deaths.</p>
+                    </div>
+                </div>
+
+                <div class="age-breakdown-section">
+                    <h3>Risk by Age Group (2023)</h3>
+                    <div class="age-stats-grid">
+                        <div class="age-stat">
+                            <div class="age-label">15-16</div>
+                            <div class="crash-rate">4.9</div>
+                            <div class="rate-label">crashes per 100M miles</div>
+                            <div class="fatalities">920 deaths</div>
+                        </div>
+                        <div class="age-stat">
+                            <div class="age-label">17-18</div>
+                            <div class="crash-rate">4.0</div>
+                            <div class="rate-label">crashes per 100M miles</div>
+                            <div class="fatalities">1,226 deaths</div>
+                        </div>
+                        <div class="age-stat">
+                            <div class="age-label">19-20</div>
+                            <div class="crash-rate">3.4</div>
+                            <div class="rate-label">crashes per 100M miles</div>
+                            <div class="fatalities">1,116 deaths</div>
+                        </div>
+                        <div class="age-stat">
+                            <div class="age-label">21-25</div>
+                            <div class="crash-rate">2.4</div>
+                            <div class="rate-label">crashes per 100M miles</div>
+                            <div class="fatalities">1,950 deaths</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Age Groups Tab -->
+        <section id="age-groups" class="tab-content">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Teen Driving Risk by Age Group</h2>
+                    <p>Understanding how risk changes with age and experience</p>
+                </div>
+
+                <div class="chart-container">
+                    <canvas id="ageGroupChart"></canvas>
+                </div>
+
+                <div class="age-analysis-grid">
+                    <div class="age-card critical">
+                        <h3>Ages 15-16: Highest Risk Period</h3>
+                        <div class="risk-metrics">
+                            <div class="metric">
+                                <span class="number">4.9</span>
+                                <span class="label">Crashes per 100M miles</span>
+                            </div>
+                            <div class="metric">
+                                <span class="number">920</span>
+                                <span class="label">Deaths in 2023</span>
+                            </div>
+                        </div>
+                        <h4>Primary Risk Factors:</h4>
+                        <ul>
+                            <li>Complete inexperience with vehicle control</li>
+                            <li>Poor hazard recognition and scanning</li>
+                            <li>Overconfidence despite limited skills</li>
+                            <li>Brain development still in early stages</li>
+                        </ul>
+                        <h4>Parent Strategy:</h4>
+                        <p>Maximum supervision, restricted driving conditions, extensive practice in controlled environments.</p>
+                    </div>
+
+                    <div class="age-card warning">
+                        <h3>Ages 17-18: Peak Danger Years</h3>
+                        <div class="risk-metrics">
+                            <div class="metric">
+                                <span class="number">4.0</span>
+                                <span class="label">Crashes per 100M miles</span>
+                            </div>
+                            <div class="metric">
+                                <span class="number">1,226</span>
+                                <span class="label">Deaths in 2023</span>
+                            </div>
+                        </div>
+                        <h4>Primary Risk Factors:</h4>
+                        <ul>
+                            <li>Increased independence and freedom</li>
+                            <li>Peer passenger influence</li>
+                            <li>Night driving exposure</li>
+                            <li>Social pressure and risk-taking</li>
+                        </ul>
+                        <h4>Parent Strategy:</h4>
+                        <p>Graduated privilege increases based on demonstrated safety, continued monitoring, clear consequences.</p>
+                    </div>
+
+                    <div class="age-card moderate">
+                        <h3>Ages 19-20: Continued High Risk</h3>
+                        <div class="risk-metrics">
+                            <div class="metric">
+                                <span class="number">3.4</span>
+                                <span class="label">Crashes per 100M miles</span>
+                            </div>
+                            <div class="metric">
+                                <span class="number">1,116</span>
+                                <span class="label">Deaths in 2023</span>
+                            </div>
+                        </div>
+                        <h4>Primary Risk Factors:</h4>
+                        <ul>
+                            <li>College environment and peer pressure</li>
+                            <li>Approaching legal drinking age</li>
+                            <li>Reduced parental oversight</li>
+                            <li>Overconfidence from experience</li>
+                        </ul>
+                        <h4>Parent Strategy:</h4>
+                        <p>Open communication, financial leverage, continued safety discussions, emergency planning.</p>
+                    </div>
+
+                    <div class="age-card improving">
+                        <h3>Ages 21-25: Risk Remains Elevated</h3>
+                        <div class="risk-metrics">
+                            <div class="metric">
+                                <span class="number">2.4</span>
+                                <span class="label">Crashes per 100M miles</span>
+                            </div>
+                            <div class="metric">
+                                <span class="number">1,950</span>
+                                <span class="label">Deaths in 2023</span>
+                            </div>
+                        </div>
+                        <h4>Primary Risk Factors:</h4>
+                        <ul>
+                            <li>Legal alcohol availability</li>
+                            <li>Night life and social drinking</li>
+                            <li>Career stress and time pressure</li>
+                            <li>Complacency with driving skills</li>
+                        </ul>
+                        <h4>Parent Strategy:</h4>
+                        <p>Role modeling, ongoing safety discussions, support during stressful periods, ride alternatives.</p>
+                    </div>
+                </div>
+
+                <div class="readiness-assessment">
+                    <h3>Is Your Teen Ready for the Next Level?</h3>
+                    <div class="assessment-checklist">
+                        <h4>Moving from Supervised to Independent:</h4>
+                        <div class="checklist">
+                            <label><input type="checkbox"> 6+ months crash and violation free</label>
+                            <label><input type="checkbox"> Demonstrates good judgment consistently</label>
+                            <label><input type="checkbox"> Follows all rules without reminders</label>
+                            <label><input type="checkbox"> Shows mature responses to challenges</label>
+                            <label><input type="checkbox"> Communicates openly about driving experiences</label>
+                        </div>
+                        <p class="assessment-note">All items should be checked before advancing to the next privilege level.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gender Differences Tab -->
+        <section id="gender" class="tab-content">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Gender Differences in Teen Driving Risk</h2>
+                    <p>Understanding biological and behavioral factors</p>
+                </div>
+
+                <div class="chart-container">
+                    <canvas id="genderChart"></canvas>
+                </div>
+
+                <div class="gender-comparison-grid">
+                    <div class="gender-card male">
+                        <h3>Male Teen Drivers</h3>
+                        <div class="gender-stats">
+                            <div class="stat">
+                                <span class="number">2.4x</span>
+                                <span class="label">Higher fatal crash rate</span>
+                            </div>
+                            <div class="stat">
+                                <span class="number">69%</span>
+                                <span class="label">Of teen driving deaths</span>
+                            </div>
+                            <div class="stat">
+                                <span class="number">38%</span>
+                                <span class="label">Speed-related fatalities</span>
+                            </div>
+                        </div>
+
+                        <h4>Higher Risk Behaviors:</h4>
+                        <ul>
+                            <li>Speeding (38% vs 22% for females)</li>
+                            <li>Aggressive driving (42% vs 18%)</li>
+                            <li>Night driving crashes (75% vs 25%)</li>
+                            <li>Alcohol involvement (21% vs 12%)</li>
+                            <li>Risk-taking with passengers</li>
+                        </ul>
+
+                        <h4>Biological Factors:</h4>
+                        <ul>
+                            <li>Higher testosterone levels increase risk-taking</li>
+                            <li>Brain development 1-2 years behind females</li>
+                            <li>Greater susceptibility to peer influence</li>
+                            <li>Delayed impulse control development</li>
+                        </ul>
+
+                        <h4>Parent Strategies for Males:</h4>
+                        <ul>
+                            <li>Extended supervision period (consider 18+ months)</li>
+                            <li>Stricter passenger restrictions</li>
+                            <li>GPS monitoring for speed compliance</li>
+                            <li>Enhanced night driving restrictions</li>
+                            <li>Address testosterone-driven behaviors directly</li>
+                        </ul>
+                    </div>
+
+                    <div class="gender-card female">
+                        <h3>Female Teen Drivers</h3>
+                        <div class="gender-stats">
+                            <div class="stat">
+                                <span class="number">31%</span>
+                                <span class="label">Of teen driving deaths</span>
+                            </div>
+                            <div class="stat">
+                                <span class="number">25.5</span>
+                                <span class="label">Fatal crashes per 100K</span>
+                            </div>
+                            <div class="stat">
+                                <span class="number">32%</span>
+                                <span class="label">Cell phone while driving</span>
+                            </div>
+                        </div>
+
+                        <h4>Different Risk Patterns:</h4>
+                        <ul>
+                            <li>Lower speeding rates (22% vs 38% for males)</li>
+                            <li>More intersection/right-of-way crashes</li>
+                            <li>Higher distracted driving (especially phones)</li>
+                            <li>Better seatbelt compliance</li>
+                            <li>More cautious overall approach</li>
+                        </ul>
+
+                        <h4>Biological Advantages:</h4>
+                        <ul>
+                            <li>Earlier brain maturation (1-2 years ahead)</li>
+                            <li>Better emotional regulation</li>
+                            <li>Lower testosterone = less aggression</li>
+                            <li>Better impulse control development</li>
+                        </ul>
+
+                        <h4>Parent Strategies for Females:</h4>
+                        <ul>
+                            <li>Focus on hazard recognition training</li>
+                            <li>Address intersection navigation skills</li>
+                            <li>Manage phone/multitasking temptations</li>
+                            <li>Build confidence in challenging situations</li>
+                            <li>Leverage natural caution for safety</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="gender-insights">
+                    <h3>Key Insights for Parents</h3>
+                    <div class="insight-grid">
+                        <div class="insight warning">
+                            <h4>The Gender Gap Widens with Age</h4>
+                            <p>The crash rate difference between male and female teens increases from 1.65x at ages 15-16 to 2.14x at ages 19-20, suggesting that biological and social factors become more pronounced as teens gain independence.</p>
+                        </div>
+                        <div class="insight positive">
+                            <h4>Both Benefit from Structure</h4>
+                            <p>While males and females have different risk patterns, both groups benefit significantly from graduated licensing, parental monitoring, and evidence-based safety interventions.</p>
+                        </div>
+                        <div class="insight critical">
+                            <h4>Tailor Your Approach</h4>
+                            <p>Understanding your teen's gender-specific risks allows you to implement more effective safety strategies. Males need more structure and monitoring; females need more hazard awareness training.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Top Causes Tab -->
+        <section id="causes" class="tab-content">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Top 10 Causes of Teen Fatal Crashes</h2>
+                    <p>Understanding what kills teens on the road</p>
+                </div>
+
+                <div class="chart-container">
+                    <canvas id="causesChart"></canvas>
+                </div>
+
+                <div class="causes-detailed">
+                    <div class="cause-card critical" data-cause="seatbelts">
+                        <div class="cause-header">
+                            <div class="cause-rank">1</div>
+                            <div class="cause-info">
+                                <h3>Not Wearing Seatbelts</h3>
+                                <div class="cause-stat">50% of fatal crashes</div>
+                                <div class="lives-lost">1,354 deaths in 2023</div>
+                            </div>
+                            <div class="trend-indicator stable">Stable</div>
+                        </div>
+                        <div class="cause-details">
+                            <p><strong>The Impact:</strong> 1,354 teen lives could have been saved in 2023 with proper seatbelt use. Unbuckled teens are 75% more likely to die in a crash.</p>
+                            <div class="prevention-strategies">
+                                <h4>Prevention Strategies:</h4>
+                                <ul>
+                                    <li>Make seatbelt use non-negotiable from day one</li>
+                                    <li>No exceptions - not even for short trips</li>
+                                    <li>Model consistent seatbelt use yourself</li>
+                                    <li>Ensure all passengers buckle up before starting</li>
+                                    <li>Use technology reminders and alerts</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cause-card critical" data-cause="speeding">
+                        <div class="cause-header">
+                            <div class="cause-rank">2</div>
+                            <div class="cause-info">
+                                <h3>Speeding</h3>
+                                <div class="cause-stat">43% of fatal crashes</div>
+                                <div class="lives-lost">1,984 deaths in 2023</div>
+                            </div>
+                            <div class="trend-indicator increasing">↑8.7%</div>
+                        </div>
+                        <div class="cause-details">
+                            <p><strong>The Reality:</strong> Nearly half of teen fatal crashes involve excessive speed. Speed increases both crash likelihood and severity dramatically.</p>
+                            <div class="prevention-strategies">
+                                <h4>Prevention Strategies:</h4>
+                                <ul>
+                                    <li>GPS monitoring with speed alerts</li>
+                                    <li>Discuss physics of speed and crash forces</li>
+                                    <li>Set consequences for any speeding violations</li>
+                                    <li>Practice time management to reduce rushing</li>
+                                    <li>Model appropriate speeds consistently</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cause-card warning" data-cause="experience">
+                        <div class="cause-header">
+                            <div class="cause-rank">3</div>
+                            <div class="cause-info">
+                                <h3>Inexperience/Poor Judgment</h3>
+                                <div class="cause-stat">35% of fatal crashes</div>
+                                <div class="lives-lost">1,131 deaths in 2023</div>
+                            </div>
+                            <div class="trend-indicator increasing">↑5%</div>
+                        </div>
+                        <div class="cause-details">
+                            <p><strong>The Challenge:</strong> Teen brains are still developing decision-making capabilities. Experience takes time to build safely.</p>
+                            <div class="prevention-strategies">
+                                <h4>Prevention Strategies:</h4>
+                                <ul>
+                                    <li>Maximize supervised practice hours (100+ recommended)</li>
+                                    <li>Practice diverse conditions and scenarios</li>
+                                    <li>Discuss hazard recognition actively</li>
+                                    <li>Gradual privilege increases based on demonstrated skill</li>
+                                    <li>Professional instruction for specific skills</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cause-card critical" data-cause="alcohol">
+                        <div class="cause-header">
+                            <div class="cause-rank">4</div>
+                            <div class="cause-info">
+                                <h3>Alcohol/DUI</h3>
+                                <div class="cause-stat">30% of fatal crashes</div>
+                                <div class="lives-lost">687 deaths in 2023</div>
+                            </div>
+                            <div class="trend-indicator increasing">↑8.7%</div>
+                        </div>
+                        <div class="cause-details">
+                            <p><strong>Disturbing Reality:</strong> Despite the legal drinking age of 21, alcohol is involved in 30% of teen fatal crashes.</p>
+                            <div class="prevention-strategies">
+                                <h4>Prevention Strategies:</h4>
+                                <ul>
+                                    <li>Zero tolerance policy with immediate consequences</li>
+                                    <li>Provide safe ride alternatives (Uber, parent pickup)</li>
+                                    <li>Address peer pressure directly</li>
+                                    <li>Monitor social activities and environments</li>
+                                    <li>Open communication about alcohol risks</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cause-card warning" data-cause="night">
+                        <div class="cause-header">
+                            <div class="cause-rank">5</div>
+                            <div class="cause-info">
+                                <h3>Night Driving</h3>
+                                <div class="cause-stat">45% of deaths occur 9PM-6AM</div>
+                                <div class="lives-lost">1,372 deaths in 2023</div>
+                            </div>
+                            <div class="trend-indicator increasing">↑3%</div>
+                        </div>
+                        <div class="cause-details">
+                            <p><strong>Disproportionate Risk:</strong> Teen fatal crash rate is 3x higher at night despite less driving during these hours.</p>
+                            <div class="prevention-strategies">
+                                <h4>Prevention Strategies:</h4>
+                                <ul>
+                                    <li>Restrict night driving for first 12+ months</li>
+                                    <li>Gradual extension of curfew based on safety record</li>
+                                    <li>Require specific permission for night activities</li>
+                                    <li>Practice night driving in controlled conditions</li>
+                                    <li>Address fatigue and visibility challenges</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="causes-summary">
+                    <h3>Lives That Could Be Saved</h3>
+                    <div class="prevention-impact">
+                        <div class="impact-stat">
+                            <span class="big-number">4,200+</span>
+                            <span class="impact-label">Teen lives could be saved annually by addressing just the top 5 causes</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Brain Science Tab -->
+        <section id="brain" class="tab-content">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Teen Brain Development and Driving Risk</h2>
+                    <p>Understanding the science behind teen behavior</p>
+                </div>
+
+                <div class="brain-interactive">
+                    <div class="age-slider-container">
+                        <h3>Explore Brain Development by Age</h3>
+                        <div class="slider-section">
+                            <label for="ageSlider">Current Age: <span id="currentAge">16</span></label>
+                            <input type="range" id="ageSlider" min="15" max="25" value="16" class="age-slider">
+                            <div class="age-labels">
+                                <span>15</span>
+                                <span>17</span>
+                                <span>19</span>
+                                <span>21</span>
+                                <span>23</span>
+                                <span>25</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="brain-metrics">
+                        <div class="metric-card">
+                            <div class="metric-header">
+                                <h4>Prefrontal Cortex Development</h4>
+                                <p>Decision-making center</p>
+                            </div>
+                            <div class="metric-visual">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" id="prefrontalProgress"></div>
+                                </div>
+                                <span class="metric-value" id="prefrontalValue">60%</span>
+                            </div>
+                        </div>
+
+                        <div class="metric-card">
+                            <div class="metric-header">
+                                <h4>Risk-Taking Propensity</h4>
+                                <p>Likelihood of risky choices</p>
+                            </div>
+                            <div class="metric-visual">
+                                <div class="progress-bar risk">
+                                    <div class="progress-fill" id="riskProgress"></div>
+                                </div>
+                                <span class="metric-value" id="riskValue">85%</span>
+                            </div>
+                        </div>
+
+                        <div class="metric-card">
+                            <div class="metric-header">
+                                <h4>Attention Control</h4>
+                                <p>Ability to maintain focus</p>
+                            </div>
+                            <div class="metric-visual">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" id="attentionProgress"></div>
+                                </div>
+                                <span class="metric-value" id="attentionValue">65%</span>
+                            </div>
+                        </div>
+
+                        <div class="metric-card">
+                            <div class="metric-header">
+                                <h4>Impulse Control</h4>
+                                <p>Ability to resist impulses</p>
+                            </div>
+                            <div class="metric-visual">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" id="impulseProgress"></div>
+                                </div>
+                                <span class="metric-value" id="impulseValue">55%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="brain-science-explanation">
+                    <h3>Why Teen Brains Make Driving Dangerous</h3>
+                    <div class="science-grid">
+                        <div class="science-card">
+                            <h4>The Prefrontal Cortex Problem</h4>
+                            <p>The brain's "CEO" - responsible for decision-making, planning, and impulse control - doesn't fully mature until the mid-20s. This means teens literally don't have adult-level judgment capabilities.</p>
+                            <div class="key-impact">
+                                <strong>Driving Impact:</strong> Poor decision-making in complex traffic situations, difficulty planning ahead, inability to resist distractions.
+                            </div>
+                        </div>
+
+                        <div class="science-card">
+                            <h4>The Limbic System Imbalance</h4>
+                            <p>The emotional center (limbic system) matures before the rational center (prefrontal cortex), creating an imbalance that leads to emotion-driven decisions.</p>
+                            <div class="key-impact">
+                                <strong>Driving Impact:</strong> Road rage, showing off for friends, taking risks when upset or excited, poor stress management while driving.
+                            </div>
+                        </div>
+
+                        <div class="science-card">
+                            <h4>Working Memory Limitations</h4>
+                            <p>Teen brains have reduced working memory capacity, making it difficult to process multiple pieces of information simultaneously.</p>
+                            <div class="key-impact">
+                                <strong>Driving Impact:</strong> Difficulty multitasking while driving, problems with complex navigation, trouble managing passengers and driving simultaneously.
+                            </div>
+                        </div>
+
+                        <div class="science-card">
+                            <h4>Reward System Hypersensitivity</h4>
+                            <p>Teen brains are hypersensitive to rewards and peer approval, leading to increased risk-taking when potential rewards are present.</p>
+                            <div class="key-impact">
+                                <strong>Driving Impact:</strong> Showing off for passengers, racing, taking risks for social media content, peer pressure compliance.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hormone-impact">
+                    <h3>Hormonal Influences on Driving Risk</h3>
+                    <div class="hormone-comparison">
+                        <div class="hormone-card male">
+                            <h4>Testosterone (Higher in Males)</h4>
+                            <div class="hormone-effects">
+                                <ul>
+                                    <li>Increases aggression and risk-taking</li>
+                                    <li>Reduces cognitive control</li>
+                                    <li>Amplifies reward-seeking behavior</li>
+                                    <li>Increases competitive behavior</li>
+                                </ul>
+                            </div>
+                            <div class="driving-connection">
+                                <strong>Why males have higher crash rates:</strong> Testosterone directly increases dangerous driving behaviors while reducing the brain's ability to control impulses.
+                            </div>
+                        </div>
+
+                        <div class="hormone-card female">
+                            <h4>Estrogen/Progesterone (Female Patterns)</h4>
+                            <div class="hormone-effects">
+                                <ul>
+                                    <li>Generally promotes caution</li>
+                                    <li>Better emotional regulation</li>
+                                    <li>Less aggression overall</li>
+                                    <li>Earlier brain maturation</li>
+                                </ul>
+                            </div>
+                            <div class="driving-connection">
+                                <strong>Why females have lower crash rates:</strong> Hormonal patterns that promote caution combined with earlier brain development create safer driving patterns.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="brain-timeline">
+                    <h3>When Will My Teen's Brain Be Ready?</h3>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-age">15-16</div>
+                            <div class="timeline-content">
+                                <h5>High Risk Period</h5>
+                                <p>Maximum supervision needed. Brain is still developing basic executive functions. High emotional reactivity.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-age">17-18</div>
+                            <div class="timeline-content">
+                                <h5>Continued High Risk</h5>
+                                <p>Some improvement in decision-making, but peer influence remains very strong. Gradual privilege increases appropriate.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-age">19-20</div>
+                            <div class="timeline-content">
+                                <h5>Moderate Risk</h5>
+                                <p>Better impulse control developing, but still susceptible to peer pressure and emotional decisions.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-age">21-23</div>
+                            <div class="timeline-content">
+                                <h5>Improving Control</h5>
+                                <p>More adult-like decision-making emerging, but full maturity still 2-3 years away.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-age">24-25</div>
+                            <div class="timeline-content">
+                                <h5>Near Adult Levels</h5>
+                                <p>Brain approaching full maturity. Risk-taking decreases significantly. Better long-term planning.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Proven Solutions Tab -->
+        <section id="solutions" class="tab-content">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Proven Solutions to Reduce Teen Driving Deaths</h2>
+                    <p>Evidence-based interventions that save lives</p>
+                </div>
+
+                <div class="chart-container">
+                    <canvas id="solutionsChart"></canvas>
+                </div>
+
+                <div class="solutions-grid">
+                    <div class="solution-card top-tier">
+                        <div class="solution-header">
+                            <h3>In-Vehicle Monitoring Systems</h3>
+                            <div class="effectiveness">35% fatality reduction</div>
+                        </div>
+                        <div class="solution-details">
+                            <p>Real-time feedback on speed, harsh braking, and acceleration with parent notifications.</p>
+                            <div class="solution-stats">
+                                <div class="stat">
+                                    <span class="stat-value">30%</span>
+                                    <span class="stat-label">Crash reduction</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-value">65%</span>
+                                    <span class="stat-label">Speeding reduction</span>
+                                </div>
+                            </div>
+                            <div class="implementation">
+                                <strong>How to Implement:</strong>
+                                <ul>
+                                    <li>Install GPS-based monitoring app or device</li>
+                                    <li>Set up parent alert notifications</li>
+                                    <li>Review data weekly with teen</li>
+                                    <li>Use positive reinforcement for good driving</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="solution-card top-tier">
+                        <div class="solution-header">
+                            <h3>Parent-Teen Driving Agreements</h3>
+                            <div class="effectiveness">30% fatality reduction</div>
+                        </div>
+                        <div class="solution-details">
+                            <p>Written contracts with clear expectations, consequences, and privilege progressions.</p>
+                            <div class="solution-stats">
+                                <div class="stat">
+                                    <span class="stat-value">25%</span>
+                                    <span class="stat-label">Crash reduction</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-value">$0</span>
+                                    <span class="stat-label">Cost to implement</span>
+                                </div>
+                            </div>
+                            <div class="implementation">
+                                <strong>How to Implement:</strong>
+                                <ul>
+                                    <li>Create written agreement together</li>
+                                    <li>Include clear rules and consequences</li>
+                                    <li>Review and adjust monthly</li>
+                                    <li>Both parties sign and commit</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="solution-card high-impact">
+                        <div class="solution-header">
+                            <h3>Night Driving Restrictions</h3>
+                            <div class="effectiveness">25% fatality reduction</div>
+                        </div>
+                        <div class="solution-details">
+                            <p>Prohibit unsupervised driving after 9-10 PM during first year of independent driving.</p>
+                            <div class="solution-stats">
+                                <div class="stat">
+                                    <span class="stat-value">20%</span>
+                                    <span class="stat-label">Crash reduction</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-value">50%</span>
+                                    <span class="stat-label">Night crash reduction</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="solution-card high-impact">
+                        <div class="solution-header">
+                            <h3>Passenger Restrictions</h3>
+                            <div class="effectiveness">22% fatality reduction</div>
+                        </div>
+                        <div class="solution-details">
+                            <p>Limit teen passengers, especially during first 6-12 months of independent driving.</p>
+                            <div class="solution-stats">
+                                <div class="stat">
+                                    <span class="stat-value">18%</span>
+                                    <span class="stat-label">Crash reduction</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-value">44%</span>
+                                    <span class="stat-label">Risk per passenger</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="solution-card moderate-impact">
+                        <div class="solution-header">
+                            <h3>Increased Supervised Practice</h3>
+                            <div class="effectiveness">18% fatality reduction</div>
+                        </div>
+                        <div class="solution-details">
+                            <p>70+ hours of supervised driving practice in diverse conditions before independent driving.</p>
+                            <div class="solution-stats">
+                                <div class="stat">
+                                    <span class="stat-value">15%</span>
+                                    <span class="stat-label">Crash reduction</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-value">100+</span>
+                                    <span class="stat-label">Recommended hours</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="vehicle-safety-section">
+                    <h3>Vehicle Safety Technology</h3>
+                    <div class="safety-tech-card featured">
+                        <div class="tech-header">
+                            <h4>Toyota Safety Sense</h4>
+                            <p>Advanced safety features designed to prevent accidents</p>
+                        </div>
+                        <div class="tech-features">
+                            <div class="feature">
+                                <strong>Pre-Collision System:</strong> Automatically applies brakes to help avoid or reduce collision severity
+                            </div>
+                            <div class="feature">
+                                <strong>Lane Departure Alert:</strong> Warns when vehicle drifts from lane without signaling
+                            </div>
+                            <div class="feature">
+                                <strong>Automatic High Beams:</strong> Automatically switches between high and low beams
+                            </div>
+                            <div class="feature">
+                                <strong>Dynamic Radar Cruise Control:</strong> Maintains set distance from vehicle ahead
+                            </div>
+                        </div>
+                        <div class="tech-cta">
+                            <a href="https://www.youtube.com/watch?v=iZ9H_11I-8Y" target="_blank" class="btn primary">
+                                Learn About Toyota Safety Sense
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="quick-wins">
+                    <h3>Quick Wins: Easy Steps with High Impact</h3>
+                    <div class="quick-win-grid">
+                        <div class="quick-win">
+                            <div class="win-icon">📝</div>
+                            <h4>Create Driving Agreement</h4>
+                            <p>30 minutes to create, 30% crash reduction</p>
+                        </div>
+                        <div class="quick-win">
+                            <div class="win-icon">🚫</div>
+                            <h4>Implement Phone Ban</h4>
+                            <p>Zero cost, immediate distraction reduction</p>
+                        </div>
+                        <div class="quick-win">
+                            <div class="win-icon">🌙</div>
+                            <h4>Set Night Curfew</h4>
+                            <p>Instant 50% reduction in night crash risk</p>
+                        </div>
+                        <div class="quick-win">
+                            <div class="win-icon">👥</div>
+                            <h4>Restrict Passengers</h4>
+                            <p>No teen passengers = 22% lower fatality risk</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="action-planner">
+                    <h3>Create Your Action Plan</h3>
+                    <div class="planner-form">
+                        <div class="form-group">
+                            <label>Your teen's age:</label>
+                            <select id="teenAge">
+                                <option value="15">15 years old</option>
+                                <option value="16">16 years old</option>
+                                <option value="17">17 years old</option>
+                                <option value="18">18 years old</option>
+                                <option value="19">19 years old</option>
+                                <option value="20">20 years old</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Current privilege level:</label>
+                            <select id="privilegeLevel">
+                                <option value="learner">Learner's Permit</option>
+                                <option value="new">New Independent Driver</option>
+                                <option value="experienced">6+ Months Independent</option>
+                                <option value="advanced">1+ Years Independent</option>
+                            </select>
+                        </div>
+                        <button class="btn primary" onclick="generatePlan()">Generate My Plan</button>
+                    </div>
+                    <div id="personalizedPlan" class="personalized-plan"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Take Action Tab -->
+        <section id="action" class="tab-content">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Take Action: Protect Your Teen Driver Today</h2>
+                    <p>Implement these evidence-based strategies immediately</p>
+                </div>
+
+                <div class="action-priority">
+                    <h3>Priority Actions (Start Today)</h3>
+                    <div class="priority-grid">
+                        <div class="priority-card critical">
+                            <div class="priority-number">1</div>
+                            <div class="priority-content">
+                                <h4>Create Driving Agreement</h4>
+                                <p>30% reduction in crash risk with written agreements</p>
+                                <div class="priority-actions">
+                                    <button class="btn primary" onclick="downloadContract()">Download Contract Template</button>
+                                    <span class="time-estimate">Time needed: 30 minutes</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="priority-card critical">
+                            <div class="priority-number">2</div>
+                            <div class="priority-content">
+                                <h4>Implement Phone Ban</h4>
+                                <p>Complete device ban while driving - not even hands-free</p>
+                                <div class="priority-actions">
+                                    <button class="btn primary" onclick="showPhoneStrategies()">Phone Control Strategies</button>
+                                    <span class="time-estimate">Impact: Immediate</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="priority-card warning">
+                            <div class="priority-number">3</div>
+                            <div class="priority-content">
+                                <h4>Set Night Restrictions</h4>
+                                <p>No driving after 9 PM for first year</p>
+                                <div class="priority-actions">
+                                    <button class="btn primary" onclick="showNightGuidelines()">Night Driving Guidelines</button>
+                                    <span class="time-estimate">50% night crash reduction</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="conversation-starters">
+                    <h3>Safety Conversation Starters</h3>
+                    <div class="conversation-grid">
+                        <div class="conversation-card">
+                            <h4>About Brain Development</h4>
+                            <div class="conversation-script">
+                                <p><strong>You:</strong> "Did you know your brain won't be fully developed for decision-making until you're about 25?"</p>
+                                <p><strong>Follow-up:</strong> "This isn't about intelligence - it's about the part of the brain that weighs risks and consequences. That's why we have these driving rules."</p>
+                            </div>
+                        </div>
+
+                        <div class="conversation-card">
+                            <h4>About Statistics</h4>
+                            <div class="conversation-script">
+                                <p><strong>You:</strong> "Teen drivers are 4 times more likely to crash than adults. But here's the good news - families with clear driving agreements reduce that risk by 30%."</p>
+                                <p><strong>Follow-up:</strong> "These rules aren't punishment - they're protection while your brain and skills develop."</p>
+                            </div>
+                        </div>
+
+                        <div class="conversation-card">
+                            <h4>About Peer Pressure</h4>
+                            <div class="conversation-script">
+                                <p><strong>You:</strong> "What would you do if friends pressured you to speed or text while driving?"</p>
+                                <p><strong>Follow-up:</strong> "Let's practice some responses you can use. Your safety is more important than what anyone thinks."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="emergency-planning">
+                    <h3>Emergency Planning</h3>
+                    <div class="emergency-checklist">
+                        <h4>Ensure Your Teen Knows:</h4>
+                        <div class="checklist">
+                            <label><input type="checkbox"> How to call 911 and what information to provide</label>
+                            <label><input type="checkbox"> Your phone numbers and emergency contacts</label>
+                            <label><input type="checkbox"> Insurance information and location in vehicle</label>
+                            <label><input type="checkbox"> What to do in case of accident (stay calm, don't admit fault)</label>
+                            <label><input type="checkbox"> Who to call for roadside assistance</label>
+                            <label><input type="checkbox"> How to change a tire or call for help</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="progress-tracking">
+                    <h3>Track Your Teen's Progress</h3>
+                    <div class="tracking-tools">
+                        <div class="tracking-card">
+                            <h4>Monthly Safety Review</h4>
+                            <p>Regular check-ins to assess progress and adjust rules</p>
+                            <button class="btn secondary" onclick="downloadReviewTemplate()">Download Review Template</button>
+                        </div>
+                        <div class="tracking-card">
+                            <h4>Milestone Rewards</h4>
+                            <p>Positive reinforcement for safe driving achievements</p>
+                            <button class="btn secondary" onclick="showMilestones()">View Milestone Ideas</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="local-resources">
+                    <h3>Additional Resources</h3>
+                    <div class="resource-grid">
+                        <div class="resource-card">
+                            <h4>Professional Driving Instruction</h4>
+                            <p>Consider professional lessons for specific skills like highway merging or parallel parking</p>
+                        </div>
+                        <div class="resource-card">
+                            <h4>Defensive Driving Courses</h4>
+                            <p>Advanced training in hazard recognition and crash avoidance techniques</p>
+                        </div>
+                        <div class="resource-card">
+                            <h4>Parent Support Groups</h4>
+                            <p>Connect with other parents navigating teen driving challenges</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-section">
+                    <h3>Questions? We're Here to Help</h3>
+                    <div class="contact-card">
+                        <div class="contact-info">
+                            <h4>Jeff Lee Pedersen Toyota</h4>
+                            <p>Your partner in teen driving safety</p>
+                            <div class="contact-details">
+                                <div class="contact-item">
+                                    <span class="contact-icon">📞</span>
+                                    <span>720-416-6955</span>
+                                </div>
+                                <div class="contact-item">
+                                    <span class="contact-icon">📧</span>
+                                    <span>jlee@pedersentoyota.com</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="contact-message">
+                            <p>We're committed to keeping young drivers safe. If you have questions about teen driving safety, vehicle safety features, or need support implementing these strategies, please reach out.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>About This Tool</h4>
+                    <p>Based on 20+ years of teen driving safety research from NHTSA, IIHS, CDC, and peer-reviewed studies. Updated with 2023 data.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p><strong>Jeff Lee Pedersen Toyota</strong><br>
+                    Phone: 720-416-6955<br>
+                    Email: jlee@pedersentoyota.com</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Share This Tool</h4>
+                    <p>Help other parents protect their teen drivers by sharing this resource.</p>
+                    <div class="share-buttons">
+                        <button class="share-btn" onclick="shareOnSocial('facebook')">Facebook</button>
+                        <button class="share-btn" onclick="shareOnSocial('twitter')">Twitter</button>
+                        <button class="share-btn" onclick="shareOnSocial('linkedin')">LinkedIn</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
