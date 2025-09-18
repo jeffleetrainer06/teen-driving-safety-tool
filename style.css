@@ -192,17 +192,344 @@ body {
 }
 /* More blocks for content card, grid, CTA section, buttons, etc. are included in your original file and should be retained. */
 
+/* Interactive family plan */
+.family-plan-builder {
+  margin-top: 3rem;
+  background: var(--color-white);
+  border-radius: 1.25rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.family-plan-builder h3 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.family-plan-intro {
+  margin: 0;
+  color: var(--color-slate-500);
+  max-width: 720px;
+  line-height: 1.6;
+}
+
+.helper-text {
+  color: var(--color-slate-500);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-top: -0.5rem;
+}
+
+.agreement-builder {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 2rem;
+}
+
+.agreement-inputs,
+.agreement-output,
+.practice-planner,
+.risk-snapshot {
+  background: var(--color-cream-100);
+  border-radius: 1rem;
+  padding: 1.75rem;
+  border: 1px solid var(--color-border-light);
+}
+
+.agreement-inputs h4,
+.practice-planner h4,
+.risk-snapshot h4 {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-bottom: 1rem;
+}
+
+.input-group label,
+.input-group .label {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.input-group select {
+  padding: 0.65rem 0.8rem;
+  border-radius: 0.6rem;
+  border: 1px solid var(--color-border);
+  font-size: 1rem;
+}
+
+.enforcement-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-size: 0.95rem;
+}
+
+.rule-groups h5,
+.support-groups h5 {
+  margin-bottom: 0.5rem;
+  margin-top: 1.25rem;
+}
+
+.rule-grid {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.rule-option,
+.risk-option {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  padding: 0.85rem 1rem;
+  border-radius: 0.8rem;
+  border: 1px solid var(--color-border-light);
+  background: var(--color-white);
+  line-height: 1.4;
+  cursor: pointer;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.rule-option:hover,
+.risk-option:hover {
+  border-color: var(--color-primary);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.07);
+}
+
+.rule-option input,
+.risk-option input {
+  margin-top: 0.1rem;
+}
+
+.btn.full-width {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.agreement-output {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.agreement-summary-card {
+  width: 100%;
+  background: var(--color-white);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  border: 1px solid var(--color-border-light);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.agreement-summary-header h4 {
+  margin: 0 0 0.35rem;
+}
+
+.agreement-highlight {
+  background: linear-gradient(135deg, rgba(33, 128, 141, 0.1), rgba(230, 129, 97, 0.1));
+  border-radius: 0.9rem;
+  padding: 1rem 1.25rem;
+  border-left: 4px solid var(--color-primary);
+}
+
+.highlight-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.highlight-number {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.highlight-label {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.agreement-section h5 {
+  margin: 0 0 0.4rem;
+}
+
+.agreement-list {
+  margin: 0;
+  padding-left: 1.2rem;
+  display: grid;
+  gap: 0.4rem;
+}
+
+.agreement-footer {
+  margin: 0;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.placeholder-card {
+  text-align: center;
+  color: var(--color-slate-500);
+}
+
+.practice-planner {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+.planner-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.planner-control label {
+  font-weight: 600;
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+.planner-control input[type="range"] {
+  width: 100%;
+}
+
+.input-value {
+  font-size: 0.9rem;
+  color: var(--color-slate-500);
+  margin-top: 0.35rem;
+}
+
+.practice-progress {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.practice-progress-track {
+  height: 14px;
+  background: var(--color-gray-200);
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.practice-progress-fill {
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+  transition: width 0.4s ease;
+}
+
+.practice-progress-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: var(--color-slate-500);
+}
+
+.practice-summary {
+  background: var(--color-white);
+  border-radius: 0.9rem;
+  padding: 1.25rem;
+  border-left: 4px solid var(--color-primary);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.practice-summary.behind {
+  border-left-color: var(--color-danger);
+  box-shadow: 0 10px 24px rgba(255, 84, 89, 0.15);
+}
+
+.practice-summary.on-track {
+  border-left-color: var(--color-warning);
+  box-shadow: 0 10px 24px rgba(230, 129, 97, 0.15);
+}
+
+.practice-summary.ahead {
+  border-left-color: var(--color-success);
+  box-shadow: 0 10px 24px rgba(50, 184, 198, 0.18);
+}
+
+.practice-message {
+  margin: 0.75rem 0 0;
+  font-weight: 600;
+}
+
+.risk-grid {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  margin-bottom: 1.2rem;
+}
+
+.risk-level {
+  border-radius: 0.9rem;
+  padding: 1rem 1.25rem;
+  border-left: 4px solid var(--color-success);
+  background: rgba(33, 128, 141, 0.08);
+  margin-bottom: 1rem;
+}
+
+.risk-level.medium {
+  border-left-color: var(--color-warning);
+  background: rgba(230, 129, 97, 0.12);
+}
+
+.risk-level.high {
+  border-left-color: var(--color-danger);
+  background: rgba(255, 84, 89, 0.12);
+}
+
+.risk-level h5 {
+  margin: 0 0 0.35rem;
+}
+
+.risk-recommendations ul {
+  margin: 0;
+  padding-left: 1.1rem;
+  display: grid;
+  gap: 0.35rem;
+}
+
+.risk-recommendations li {
+  line-height: 1.5;
+}
+
 /* Responsive Design */
+@media (max-width: 1050px) {
+  .agreement-builder {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (max-width: 900px) {
   .container { padding: 0 1rem; }
   .hero-stats, .content-grid, .cta-buttons {
     flex-direction: column;
     gap: 1rem;
   }
+  .family-plan-builder {
+    padding: 2rem;
+  }
 }
+
 @media (max-width: 650px) {
   .header-title { font-size: 1.6rem; }
   .hero-stat, .content-card { min-width: 0; }
   .chart-container { min-height: 280px; }
+  .family-plan-builder {
+    padding: 1.5rem;
+  }
 }
 

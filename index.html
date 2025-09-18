@@ -1014,6 +1014,191 @@
                     </div>
                 </div>
 
+                <div class="family-plan-builder">
+                    <h3>Interactive Family Safety Plan</h3>
+                    <p class="family-plan-intro">Use these quick planners to turn the research into a concrete agreement, practice schedule, and risk snapshot tailored to your teen.</p>
+
+                    <div class="agreement-builder">
+                        <div class="agreement-inputs">
+                            <h4>Family Driving Agreement Builder</h4>
+                            <p class="helper-text">Choose your teen's current stage and the rules you want to include. We'll generate a summary you can share tonight.</p>
+                            <div class="input-group">
+                                <label for="licenseStage">Current driving stage</label>
+                                <select id="licenseStage">
+                                    <option value="Learner's Permit">Learner's Permit (supervised driving)</option>
+                                    <option value="Restricted/Provisional">Restricted/Provisional License</option>
+                                    <option value="Full License - Under 21">Full License - Under 21</option>
+                                </select>
+                            </div>
+                            <div class="input-group">
+                                <label for="topConcern">Biggest safety concern right now</label>
+                                <select id="topConcern">
+                                    <option value="Speeding">Speeding</option>
+                                    <option value="Not Wearing Seatbelts">Seatbelts</option>
+                                    <option value="Distracted Driving">Phone or in-car tech distractions</option>
+                                    <option value="Night Driving">Late-night driving</option>
+                                    <option value="Teen Passengers">Friends in the car</option>
+                                    <option value="Alcohol/DUI">Alcohol or impaired driving</option>
+                                </select>
+                            </div>
+
+                            <div class="rule-groups">
+                                <h5>Rules to include</h5>
+                                <div class="rule-grid">
+                                    <label class="rule-option">
+                                        <input type="checkbox" name="agreementRule" value="seatbelts" data-summary="Everyone buckles up before the car moves and the car does not move until belts click." checked>
+                                        <span>Seatbelts every single trip</span>
+                                    </label>
+                                    <label class="rule-option">
+                                        <input type="checkbox" name="agreementRule" value="curfew" data-summary="Driving curfew set for 9 PM with any later trips requiring approval and a check-in." checked>
+                                        <span>Curfew and check-ins</span>
+                                    </label>
+                                    <label class="rule-option">
+                                        <input type="checkbox" name="agreementRule" value="passengers" data-summary="No teen passengers for the first 6 months; after that only one trusted friend with permission." checked>
+                                        <span>Passenger limits</span>
+                                    </label>
+                                    <label class="rule-option">
+                                        <input type="checkbox" name="agreementRule" value="phone" data-summary="Phone is set to Do Not Disturb, stored out of reach, and never used while the vehicle is in gear." checked>
+                                        <span>Phone locked away</span>
+                                    </label>
+                                    <label class="rule-option">
+                                        <input type="checkbox" name="agreementRule" value="weather" data-summary="No driving during snow, ice, or severe storms until we've practiced together in those conditions.">
+                                        <span>Weather limits</span>
+                                    </label>
+                                    <label class="rule-option">
+                                        <input type="checkbox" name="agreementRule" value="speed" data-summary="Speeds stay within 5 mph of the posted limit and GPS alerts are reviewed together weekly.">
+                                        <span>Speed monitoring</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="support-groups">
+                                <h5>Support strategies</h5>
+                                <div class="rule-grid">
+                                    <label class="rule-option">
+                                        <input type="checkbox" name="supportOption" value="practice" data-summary="Schedule 2 focused practice drives each week to build skills in challenging conditions." checked>
+                                        <span>Scheduled practice drives</span>
+                                    </label>
+                                    <label class="rule-option">
+                                        <input type="checkbox" name="supportOption" value="feedback" data-summary="Use calm, specific feedback after every drive and celebrate safe decisions to reinforce good habits." checked>
+                                        <span>Calm debrief after each drive</span>
+                                    </label>
+                                    <label class="rule-option">
+                                        <input type="checkbox" name="supportOption" value="incentives" data-summary="Offer milestone rewards for staying crash- and ticket-free, like expanded driving hours or covering gas." >
+                                        <span>Positive milestone rewards</span>
+                                    </label>
+                                    <label class="rule-option">
+                                        <input type="checkbox" name="supportOption" value="tech" data-summary="Activate vehicle safety tech (lane keeping, adaptive cruise, driver monitoring) and review alerts together each week.">
+                                        <span>Use vehicle safety tech</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="input-group">
+                                <span class="label">Follow-through style</span>
+                                <div class="enforcement-options">
+                                    <label>
+                                        <input type="radio" name="enforcementStyle" value="coaching" checked>
+                                        Coaching first, consequences second
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="enforcementStyle" value="strict">
+                                        Zero tolerance for violations
+                                    </label>
+                                </div>
+                            </div>
+
+                            <button type="button" id="generateAgreementBtn" class="btn accent full-width">Generate agreement summary</button>
+                        </div>
+
+                        <div class="agreement-output" id="agreementSummary">
+                            <div class="placeholder-card">
+                                <h4>Agreement summary will appear here</h4>
+                                <p>Select the rules and strategies that fit your family, then click the button to create a ready-to-share summary.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="practice-planner">
+                        <h4>Practice Hours Planner</h4>
+                        <p class="helper-text">Evidence shows 70+ hours of diverse practice creates safer, calmer teen drivers. Adjust the sliders to see your progress.</p>
+                        <div class="planner-grid">
+                            <div class="planner-control">
+                                <label for="practiceWeeks">Weeks until licensing</label>
+                                <input type="range" id="practiceWeeks" class="practice-input" min="4" max="32" value="12">
+                                <div class="input-value" id="practiceWeeksValue">12 weeks</div>
+                            </div>
+                            <div class="planner-control">
+                                <label for="practiceHours">Average hours per week</label>
+                                <input type="range" id="practiceHours" class="practice-input" min="1" max="12" value="4">
+                                <div class="input-value" id="practiceHoursValue">4 hours / week</div>
+                            </div>
+                            <div class="planner-control">
+                                <label for="supervisedShare">% of time with an adult</label>
+                                <input type="range" id="supervisedShare" class="practice-input" min="40" max="100" value="80">
+                                <div class="input-value" id="supervisedShareValue">80% supervised</div>
+                            </div>
+                        </div>
+                        <div class="practice-progress">
+                            <div class="practice-progress-track">
+                                <div class="practice-progress-fill" id="practiceProgress"></div>
+                            </div>
+                            <div class="practice-progress-labels">
+                                <span>0 hrs</span>
+                                <span id="practiceGoalLabel">Goal: 70 hrs</span>
+                                <span>90+ hrs</span>
+                            </div>
+                        </div>
+                        <div class="practice-summary" id="practiceSummary">
+                            <h5>Your practice snapshot</h5>
+                            <p>Total planned hours: <strong><span id="totalPracticeHours">48</span></strong></p>
+                            <p>Supervised driving: <strong><span id="supervisedHours">38</span></strong></p>
+                            <p class="practice-message" id="practiceMessage">Add 22 more hours to hit the safety sweet spot.</p>
+                        </div>
+                    </div>
+
+                    <div class="risk-snapshot">
+                        <h4>Risk Snapshot Checklist</h4>
+                        <p class="helper-text">Check any situations that apply to your teen this month. We'll flag where to focus first.</p>
+                        <div class="risk-grid">
+                            <label class="risk-option">
+                                <input type="checkbox" class="risk-factor-checkbox" value="Speeding" data-weight="2">
+                                <span>Has received warnings about speeding</span>
+                            </label>
+                            <label class="risk-option">
+                                <input type="checkbox" class="risk-factor-checkbox" value="Distracted Driving" data-weight="2">
+                                <span>Uses phone/infotainment while driving</span>
+                            </label>
+                            <label class="risk-option">
+                                <input type="checkbox" class="risk-factor-checkbox" value="Not Wearing Seatbelts" data-weight="3">
+                                <span>Sometimes skips the seatbelt</span>
+                            </label>
+                            <label class="risk-option">
+                                <input type="checkbox" class="risk-factor-checkbox" value="Night Driving" data-weight="1">
+                                <span>Frequently drives after 9 PM</span>
+                            </label>
+                            <label class="risk-option">
+                                <input type="checkbox" class="risk-factor-checkbox" value="Teen Passengers" data-weight="2">
+                                <span>Regularly drives friends</span>
+                            </label>
+                            <label class="risk-option">
+                                <input type="checkbox" class="risk-factor-checkbox" value="Alcohol/DUI" data-weight="4">
+                                <span>May be exposed to alcohol or impaired driving</span>
+                            </label>
+                        </div>
+                        <div class="risk-level" id="riskLevel">
+                            <h5 id="riskLevelText">Risk level: Well controlled</h5>
+                            <p id="riskLevelDetail">Keep reinforcing the basics and review the agreement weekly.</p>
+                        </div>
+                        <div class="risk-recommendations">
+                            <h5>Focus for this week</h5>
+                            <ul id="riskRecommendations">
+                                <li>Stay consistent with your agreement review and practice drives.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="conversation-starters">
                     <h3>Safety Conversation Starters</h3>
                     <div class="conversation-grid">
