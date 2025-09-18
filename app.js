@@ -65,6 +65,21 @@ const appData = {
 // Chart storage
 let charts = {};
 
+const stageIntroCopy = {
+    "Learner's Permit": "Focus on building habits while an adult is always in the passenger seat. Practice in a wide range of conditions before adding new freedoms.",
+    "Restricted/Provisional": "Your teen is gaining independence, so the agreement should spell out exactly when, where, and with whom they can drive solo.",
+    "Full License - Under 21": "Keep expectations clear even with a full license—most serious teen crashes happen in the first 18 months of independent driving."
+};
+
+const riskTipLibrary = {
+    "Speeding": "Review connected-car or app speed alerts together and set a family rule of staying within 5 mph of the posted limit.",
+    "Not Wearing Seatbelts": "No keys until seatbelts click—model it every time and double-check passengers are buckled before shifting into drive.",
+    "Distracted Driving": "Activate Do Not Disturb While Driving mode, store phones out of reach, and practice voice commands during supervised drives.",
+    "Night Driving": "Keep the curfew at 9 PM until crash-free for six months and schedule supervised practice after dark once a week.",
+    "Teen Passengers": "Limit rides to one vetted friend and use a passenger approval text before every outing.",
+    "Alcohol/DUI": "Plan safe ride options in advance and rehearse what to do if alcohol shows up unexpectedly."
+};
+
 // Initialize the application
 document.addEventListener('DOMContentLoaded', function() {
     initializeTabs();
@@ -508,17 +523,41 @@ function initializeInteractiveElements() {
             const details = this.querySelector('.cause-details');
             if (details) {
                 const isHidden = details.style.display === 'none' || !details.style.display;
-                
+
                 // Hide all other details
                 document.querySelectorAll('.cause-details').forEach(detail => {
                     detail.style.display = 'none';
                 });
-                
+
                 // Toggle this one
                 details.style.display = isHidden ? 'block' : 'none';
             }
         });
     });
+
+    // Family agreement builder
+    const agreementButton = document.getElementById('generateAgreementBtn');
+    if (agreementButton) {
+        agreementButton.addEventListener('click', generateAgreement);
+    }
+
+    // Practice planner sliders
+    const practiceInputs = document.querySelectorAll('.practice-input');
+    if (practiceInputs.length) {
+        practiceInputs.forEach(input => {
+            input.addEventListener('input', updatePracticeHours);
+        });
+        updatePracticeHours();
+    }
+
+    // Risk snapshot checklist
+    const riskCheckboxes = document.querySelectorAll('.risk-factor-checkbox');
+    if (riskCheckboxes.length) {
+        riskCheckboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', updateRiskSnapshot);
+        });
+        updateRiskSnapshot();
+    }
 }
 
 // Action Plan Generator
@@ -579,6 +618,249 @@ function generatePlan() {
     
     // Scroll to the plan
     planDiv.scrollIntoView({ behavior: 'smooth' });
+}
+
+function generateAgreement() {
+    const stageSelect = document.getElementById('licenseStage');
+    const concernSelect = document.getElementById('topConcern');
+    const summaryContainer = document.getElementById('agreementSummary');
+
+    if (!stageSelect || !concernSelect || !summaryContainer) {
+        return;
+    }
+
+    const stage = stageSelect.value;
+    const concern = concernSelect.value;
+
+    const ruleSummaries = Array.from(document.querySelectorAll('input[name="agreementRule"]:checked'))
+        .map(rule => rule.dataset.summary)
+        .filter(Boolean);
+
+    const supportSummaries = Array.from(document.querySelectorAll('input[name="supportOption"]:checked'))
+        .map(rule => rule.dataset.summary)
+        .filter(Boolean);
+
+    const enforcement = document.querySelector('input[name="enforcementStyle"]:checked');
+    const enforcementCopy = enforcement && enforcement.value === 'strict'
+        ? 'Violations pause independent driving immediately until we review the situation and rebuild trust.'
+        : 'We address missteps with calm coaching first, then adjust privileges if risky choices continue.';
+
+    const causeData = appData.accident_causes.find(item => item.Cause === concern);
+    const focusTip = riskTipLibrary[concern] || 'Review the agreement before each drive and reinforce the “why” behind every rule.';
+
+    const friendlyFocus = {
+        'Speeding': 'speed control',
+        'Not Wearing Seatbelts': 'seatbelt use',
+        'Distracted Driving': 'phone and tech distractions',
+        'Night Driving': 'nighttime driving',
+        'Teen Passengers': 'passenger management',
+        'Alcohol/DUI': 'avoiding impaired driving'
+    };
+
+    let agreementHTML = '<div class="agreement-summary-card">';
+    agreementHTML += `
+        <div class="agreement-summary-header">
+            <h4>${stage} Family Driving Agreement</h4>
+            <p>${stageIntroCopy[stage] || 'Keep your expectations written down so everyone is clear before the keys change hands.'}</p>
+        </div>
+    `;
+
+    if (causeData) {
+        agreementHTML += `
+            <div class="agreement-highlight">
+                <div class="highlight-stat">
+                    <span class="highlight-number">${causeData.Percentage_Fatal_Crashes_2023}%</span>
+                    <span class="highlight-label">of fatal teen crashes involve ${friendlyFocus[concern] || concern.toLowerCase()}.</span>
+                </div>
+                <p class="highlight-detail">That represented ${causeData.Deaths_2023.toLocaleString()} lives in 2023. Let's make sure your family avoids joining that statistic.</p>
+            </div>
+        `;
+    }
+
+    agreementHTML += `
+        <div class="agreement-section">
+            <h5>Why we're focusing on ${friendlyFocus[concern] || concern.toLowerCase()}</h5>
+            <p>${focusTip}</p>
+        </div>
+    `;
+
+    agreementHTML += '<div class="agreement-section">';
+    agreementHTML += '<h5>Our non-negotiables</h5>';
+    if (ruleSummaries.length) {
+        agreementHTML += '<ul class="agreement-list">';
+        ruleSummaries.forEach(summary => {
+            agreementHTML += `<li>${summary}</li>`;
+        });
+        agreementHTML += '</ul>';
+    } else {
+        agreementHTML += '<p class="helper-text">Choose at least one rule so your teen knows exactly what is expected.</p>';
+    }
+    agreementHTML += '</div>';
+
+    agreementHTML += '<div class="agreement-section">';
+    agreementHTML += '<h5>How we will support success</h5>';
+    if (supportSummaries.length) {
+        agreementHTML += '<ul class="agreement-list">';
+        supportSummaries.forEach(summary => {
+            agreementHTML += `<li>${summary}</li>`;
+        });
+        agreementHTML += '</ul>';
+    } else {
+        agreementHTML += '<p class="helper-text">Select a support strategy or two so your teen feels coached—not just policed.</p>';
+    }
+    agreementHTML += '</div>';
+
+    agreementHTML += `
+        <div class="agreement-section">
+            <h5>Follow-through plan</h5>
+            <p>${enforcementCopy}</p>
+        </div>
+        <p class="agreement-footer">Print or screenshot this plan and review it together weekly. Update it as your teen earns new privileges.</p>
+    `;
+
+    agreementHTML += '</div>';
+
+    summaryContainer.innerHTML = agreementHTML;
+    summaryContainer.scrollIntoView({ behavior: 'smooth' });
+}
+
+function updatePracticeHours() {
+    const weeksInput = document.getElementById('practiceWeeks');
+    const hoursInput = document.getElementById('practiceHours');
+    const supervisedInput = document.getElementById('supervisedShare');
+
+    if (!weeksInput || !hoursInput || !supervisedInput) {
+        return;
+    }
+
+    const weeks = parseInt(weeksInput.value, 10) || 0;
+    const hoursPerWeek = parseInt(hoursInput.value, 10) || 0;
+    const supervisedPercent = parseInt(supervisedInput.value, 10) || 0;
+
+    const totalHours = weeks * hoursPerWeek;
+    const supervisedHours = Math.round(totalHours * (supervisedPercent / 100));
+    const recommendedHours = 70;
+
+    const practiceWeeksValue = document.getElementById('practiceWeeksValue');
+    const practiceHoursValue = document.getElementById('practiceHoursValue');
+    const supervisedShareValue = document.getElementById('supervisedShareValue');
+
+    if (practiceWeeksValue) {
+        practiceWeeksValue.textContent = `${weeks} week${weeks === 1 ? '' : 's'}`;
+    }
+    if (practiceHoursValue) {
+        practiceHoursValue.textContent = `${hoursPerWeek} hour${hoursPerWeek === 1 ? '' : 's'} / week`;
+    }
+    if (supervisedShareValue) {
+        supervisedShareValue.textContent = `${supervisedPercent}% supervised`;
+    }
+
+    const practiceGoalLabel = document.getElementById('practiceGoalLabel');
+    if (practiceGoalLabel) {
+        practiceGoalLabel.textContent = `Goal: ${recommendedHours} hrs`;
+    }
+
+    const progressFill = document.getElementById('practiceProgress');
+    if (progressFill) {
+        const progressPercent = recommendedHours === 0 ? 0 : Math.min(100, Math.round((totalHours / recommendedHours) * 100));
+        progressFill.style.width = `${progressPercent}%`;
+    }
+
+    const totalHoursSpan = document.getElementById('totalPracticeHours');
+    if (totalHoursSpan) {
+        totalHoursSpan.textContent = totalHours;
+    }
+
+    const supervisedHoursSpan = document.getElementById('supervisedHours');
+    if (supervisedHoursSpan) {
+        supervisedHoursSpan.textContent = supervisedHours;
+    }
+
+    const summaryCard = document.getElementById('practiceSummary');
+    const practiceMessage = document.getElementById('practiceMessage');
+
+    if (summaryCard) {
+        summaryCard.classList.remove('behind', 'on-track', 'ahead');
+
+        if (totalHours >= recommendedHours) {
+            summaryCard.classList.add('ahead');
+            if (practiceMessage) {
+                practiceMessage.textContent = `Fantastic! You're ${totalHours - recommendedHours} hours beyond the recommended minimum—keep reinforcing advanced scenarios.`;
+            }
+        } else if (totalHours >= Math.round(recommendedHours * 0.75)) {
+            summaryCard.classList.add('on-track');
+            if (practiceMessage) {
+                practiceMessage.textContent = `You're close—add ${recommendedHours - totalHours} more hour${recommendedHours - totalHours === 1 ? '' : 's'} of practice to hit the 70-hour safety benchmark.`;
+            }
+        } else {
+            summaryCard.classList.add('behind');
+            if (practiceMessage) {
+                practiceMessage.textContent = `Add ${recommendedHours - totalHours} more hour${recommendedHours - totalHours === 1 ? '' : 's'} and schedule extra supervised drives to build confidence.`;
+            }
+        }
+    }
+}
+
+function updateRiskSnapshot() {
+    const riskLevel = document.getElementById('riskLevel');
+    const riskLevelText = document.getElementById('riskLevelText');
+    const riskLevelDetail = document.getElementById('riskLevelDetail');
+    const riskRecommendations = document.getElementById('riskRecommendations');
+
+    const riskCheckboxes = Array.from(document.querySelectorAll('.risk-factor-checkbox'));
+
+    if (!riskLevel || !riskLevelText || !riskLevelDetail || !riskRecommendations || !riskCheckboxes.length) {
+        return;
+    }
+
+    let score = 0;
+    const activeCauses = [];
+
+    riskCheckboxes.forEach(checkbox => {
+        if (checkbox.checked) {
+            score += parseInt(checkbox.dataset.weight || '1', 10);
+            const causeData = appData.accident_causes.find(item => item.Cause === checkbox.value);
+            if (causeData) {
+                activeCauses.push(causeData);
+            }
+        }
+    });
+
+    let levelClass = 'low';
+    let levelLabel = 'Risk level: Well controlled';
+    let levelDescription = 'Keep reinforcing the basics and review the agreement weekly.';
+
+    if (score >= 5) {
+        levelClass = 'high';
+        levelLabel = 'Risk level: High alert';
+        levelDescription = 'Pause independent driving and address the highlighted risks together before handing back the keys.';
+    } else if (score >= 3) {
+        levelClass = 'medium';
+        levelLabel = 'Risk level: Needs attention';
+        levelDescription = 'Tighten up monitoring, add supervised drives, and revisit your agreement this week.';
+    }
+
+    riskLevel.className = `risk-level ${levelClass}`;
+    riskLevelText.textContent = levelLabel;
+    riskLevelDetail.textContent = levelDescription;
+
+    riskRecommendations.innerHTML = '';
+
+    if (activeCauses.length) {
+        activeCauses
+            .sort((a, b) => (b.Percentage_Fatal_Crashes_2023 || 0) - (a.Percentage_Fatal_Crashes_2023 || 0))
+            .slice(0, 3)
+            .forEach(cause => {
+                const listItem = document.createElement('li');
+                const tip = riskTipLibrary[cause.Cause] || 'Schedule a focused conversation and practice drive around this risk.';
+                listItem.textContent = `${cause.Cause}: ${tip}`;
+                riskRecommendations.appendChild(listItem);
+            });
+    } else {
+        const listItem = document.createElement('li');
+        listItem.textContent = 'Stay consistent with your agreement review and practice drives.';
+        riskRecommendations.appendChild(listItem);
+    }
 }
 
 // Download functions (placeholder implementations)
